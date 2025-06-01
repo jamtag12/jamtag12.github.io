@@ -9,6 +9,7 @@ Lasting Injuries Roller
 <script type="module" src="{{ './assets/js/dice_roller.js' | relative_url }}"></script>
 </head>
 <button id="injury_button">Roll for Lasting Injuries</button>
+<button id="multiple_injuries">Roll Multiple Injuries</button>
 <p id="injury_output">[[   Injuries show up here   ]]</p>
 
 

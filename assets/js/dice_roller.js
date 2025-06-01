@@ -1,6 +1,7 @@
 import { injuries } from "./dice_results.js";
 
 const injury_button = document.getElementById("injury_button")
+const mult_button = document.getElementById("multiple_injuries")
 const output_field = document.getElementById("injury_output")
 
 function roll_dice(){
@@ -11,10 +12,12 @@ function roll_d66(){
   return roll_dice() * 10 + roll_dice();
 }
 
-function roll_lasting_injuries(){
+function roll_lasting_injuries(force = 0){
   let lasting_injuries = []
   let result_text = []
   let first_roll = roll_d66()
+  if(force>0)first_roll=force
+  console.log(first_roll)
 
   if(first_roll === 54){
     result_text.push("<div class='injury' style='color:red'><h4>Received multiple injuries!</h4></div>")
@@ -41,4 +44,9 @@ function roll_lasting_injuries(){
   output_field.innerHTML = result_text.join("")
 }
 
+function roll_multiple_injuries(){
+	roll_lasting_injuries(54)
+}
+
 injury_button.addEventListener('click', roll_lasting_injuries)
+mult_button.addEventListener('click', roll_multiple_injuries)
